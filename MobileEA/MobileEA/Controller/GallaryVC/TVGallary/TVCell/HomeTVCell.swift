@@ -6,12 +6,14 @@
 
 import UIKit
 
-// MARK:- Option Button Protocol
 
 protocol CellDelegateTV: AnyObject{
     
     func optionButtonTV(index: Int)
 }
+
+
+
 
 // MARK: - Folder Table View Cell
 
@@ -26,6 +28,9 @@ class HomeTVCell: UITableViewCell {
         return UINib(nibName: "HomeTVCell",
                      bundle: nil)
     }
+    
+    
+    
     
     
     
@@ -47,7 +52,7 @@ class HomeTVCell: UITableViewCell {
     }
     
     
-    //-------------------------------------------------------------------------------------------------------------------------------------------------
+  
     
     
     // MARK: - Set Selected
@@ -68,6 +73,9 @@ class HomeTVCell: UITableViewCell {
         
         cellDelegate?.optionButtonTV(index: sender.tag)
     }
+    
+    
+    
     
     
     // Inside UITableViewCell subclass

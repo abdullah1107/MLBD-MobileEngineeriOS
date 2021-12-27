@@ -17,10 +17,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-tY-KkF">
-                                <rect key="frame" x="0.0" y="811" width="414" height="85"/>
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5U-RX-R5Y">
+                                        <rect key="frame" x="40" y="27.5" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="AgA-7I-fDw"/>
+                                            <constraint firstAttribute="height" constant="45" id="ZH1-X9-bEz"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system"/>
+                                        <connections>
+                                            <action selector="listButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qhg-B2-fCK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzG-Zi-5Bv">
+                                        <rect key="frame" x="329" y="27.5" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="XU3-l6-W7w"/>
+                                            <constraint firstAttribute="height" constant="45" id="ZLG-0v-dHF"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="square.grid.2x2.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="gridButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HkS-vi-mio"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="hWN-ez-MCg"/>
+                                    <constraint firstItem="P5U-RX-R5Y" firstAttribute="leading" secondItem="a5v-tY-KkF" secondAttribute="leading" constant="40" id="9z2-cC-MsX"/>
+                                    <constraint firstAttribute="height" constant="100" id="hWN-ez-MCg"/>
+                                    <constraint firstAttribute="trailing" secondItem="AzG-Zi-5Bv" secondAttribute="trailing" constant="40" id="jgk-ze-GU0"/>
+                                    <constraint firstItem="P5U-RX-R5Y" firstAttribute="centerY" secondItem="a5v-tY-KkF" secondAttribute="centerY" id="mu3-D1-Coj"/>
+                                    <constraint firstItem="AzG-Zi-5Bv" firstAttribute="centerY" secondItem="a5v-tY-KkF" secondAttribute="centerY" id="she-Ls-V3h"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -32,7 +62,18 @@
                             <constraint firstItem="a5v-tY-KkF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iQ2-wV-qBZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PaT-qV-DJ9"/>
+                    <navigationItem key="navigationItem" id="PaT-qV-DJ9">
+                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="WJV-Nb-cAT">
+                            <connections>
+                                <action selector="sharaButtonClicked:" destination="BYZ-38-t0r" id="EYV-ca-F0A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="gridButton" destination="AzG-Zi-5Bv" id="ARB-E5-UuI"/>
+                        <outlet property="listButton" destination="P5U-RX-R5Y" id="ttQ-D2-V7J"/>
+                        <outlet property="shareButton" destination="WJV-Nb-cAT" id="Dw4-3y-SHO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,6 +99,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

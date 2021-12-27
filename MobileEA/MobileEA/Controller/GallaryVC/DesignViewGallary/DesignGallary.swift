@@ -11,6 +11,30 @@ import UIKit
 
 extension GallaryVC{
     
+    func initVC(){
+        setupGallaryCV()
+        setNavigationElements()
+        setupGallaryTV()
+        isGridReady()
+    }
+    
+    
+    
+    
+    func isGridReady(){
+        homeTV.isHidden = true
+        homeCV.isHidden = false
+    }
+    
+    
+    func isListReady(){
+        homeCV.isHidden = true
+        homeTV.isHidden = false
+       
+    }
+    
+    
+    
     // MARK: - setup collectionView
     func setupGallaryCV(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -23,8 +47,8 @@ extension GallaryVC{
         
         self.homeCV.register(HomeCVCell.nib(), forCellWithReuseIdentifier: HomeCVCell.identifier)
         
-        //homeCV.dataSource = self
-        //homeCV.delegate = self
+        homeCV.dataSource = self
+        homeCV.delegate = self
         
         self.homeCV.showsVerticalScrollIndicator = false
         
@@ -70,4 +94,49 @@ extension GallaryVC{
         self.view.addSubview(self.homeTV)
         self.view.sendSubviewToBack(self.homeTV)
     }
+}
+
+
+
+extension GallaryVC{
+    
+    func setNavigationElements() {
+        
+        self.navigationItem.leftBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(selection))
+        
+    }
+    
+    @objc func selection() {
+        
+        mObject = mObject == .view ? .select : .view
+        
+        switch mObject{
+            
+            
+        case .view:
+            
+            self.navigationItem.leftBarButtonItem?.isEnabled = false
+            self.navigationItem.rightBarButtonItem!.title = "Select"
+            setNavigationElements()
+            
+            
+        case .select:
+            
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
+            
+            self.navigationItem.rightBarButtonItem!.title = "Done"
+            
+            
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
 }

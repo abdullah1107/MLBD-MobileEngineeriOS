@@ -6,23 +6,74 @@
 
 import UIKit
 
+//MARK: - Selection Mode
+
+enum Mode {
+    case view
+    case select
+}
+
+
+
+
 class GallaryVC: UIViewController {
     
     
     
     // MARK: - outlet
-    @IBOutlet weak var bottomView: UIView!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var gridButton: UIButton!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
    
     
  
    
     
     // MARK: - variable
+    var photoModel = [PhotoModel]()
     var homeCV: UICollectionView!
     var homeTV:UITableView = UITableView()
+    
+    
+   
+    var gridButtonClicked:Bool = true
+    var listButtonClicked:Bool = false
+    var dictionarySelectedIndecPath: [IndexPath: Bool] = [:]
+    
+    
+    
+
+
+    
+    var mObject: Mode = .view {
+        
+        didSet {
+            
+            switch mObject {
+                
+            case .view:
+                
+                for (key, value) in dictionarySelectedIndecPath {
+                    if value {
+                        homeCV.deselectItem(at: key, animated: true)
+                    }
+                }
+                
+                dictionarySelectedIndecPath.removeAll()
+                self.navigationItem.rightBarButtonItem!.title = "Select"
+                homeCV.allowsMultipleSelection = false
+                homeTV.allowsMultipleSelection = false
+                
+            case .select:
+                
+                homeCV.allowsMultipleSelection = true
+                homeTV.allowsMultipleSelection = true
+                
+            }
+        }
+    }
+   
 
     
     
@@ -32,7 +83,9 @@ class GallaryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        debugPrint("debug...")
+        self.initVC()
+        dataloadfromserver()
+       
     }
     
     
@@ -43,7 +96,72 @@ class GallaryVC: UIViewController {
     }
     
     
+    
+    
+    
+    // MARK: - listButton
+    @IBAction func listButtonClicked(_ sender: UIButton) {
+        self.isListReady()
+    }
+    
+    
+    
+    
+    
+    
+    // MARK: - gridButton
+    @IBAction func gridButtonClicked(_ sender: UIButton) {
+        self.isGridReady()
+    }
+    
+    
+    
+    
+    
+    
+    
+    // MARK: - shareButton
+    @IBAction func sharaButtonClicked(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    
 
 
 }
 
+extension GallaryVC{
+    
+    func dataloadfromserver(){
+        
+        let utility = HttpUtility.shared // using the shared instance of the utility to make the API call
+        let requestUrl = URL(string: "https://picsum.photos/v2/list")
+        let request = HURequest(withUrl: requestUrl!, forHttpMethod: .get)
+        
+        utility.request(huRequest: request, resultType: [PhotoModel].self) { [weak self] (response) in
+            
+            
+             switch response{
+                 
+               case .success(let employee):
+                 
+                 debugPrint(employee?.count ?? 0)
+                 guard let employee = employee else {return}
+                 
+                 for emp in employee{
+                     self?.photoModel.append(emp)
+                 }
+                 
+      
+                 debugPrint(self?.photoModel[0].url ?? "")
+                
+               case .failure(let error):
+                 debugPrint(error)
+                 break
+                // your code here to handle error
+                
+            }
+        }
+        
+    }
+}

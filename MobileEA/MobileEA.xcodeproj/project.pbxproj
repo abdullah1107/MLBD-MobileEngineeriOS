@@ -20,6 +20,12 @@
 		10148A5C2778D275009CE8F4 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A5A2778D275009CE8F4 /* HomeTVCell.swift */; };
 		10148A5E2778D372009CE8F4 /* TVGallary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A5D2778D372009CE8F4 /* TVGallary.swift */; };
 		10148A602778D45E009CE8F4 /* CVGallary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A5F2778D45E009CE8F4 /* CVGallary.swift */; };
+		10148A6A2779B757009CE8F4 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A622779B757009CE8F4 /* HttpUtility.swift */; };
+		10148A6B2779B757009CE8F4 /* HUHttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A632779B757009CE8F4 /* HUHttpMethods.swift */; };
+		10148A6C2779B757009CE8F4 /* HURequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A642779B757009CE8F4 /* HURequest.swift */; };
+		10148A6D2779B757009CE8F4 /* HUNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A652779B757009CE8F4 /* HUNetworkError.swift */; };
+		10148A6E2779B757009CE8F4 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A672779B757009CE8F4 /* EncodableExtension.swift */; };
+		10148A712779C4E4009CE8F4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A702779C4E4009CE8F4 /* PhotoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,13 @@
 		10148A5A2778D275009CE8F4 /* HomeTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		10148A5D2778D372009CE8F4 /* TVGallary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVGallary.swift; sourceTree = "<group>"; };
 		10148A5F2778D45E009CE8F4 /* CVGallary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVGallary.swift; sourceTree = "<group>"; };
+		10148A622779B757009CE8F4 /* HttpUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
+		10148A632779B757009CE8F4 /* HUHttpMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUHttpMethods.swift; sourceTree = "<group>"; };
+		10148A642779B757009CE8F4 /* HURequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HURequest.swift; sourceTree = "<group>"; };
+		10148A652779B757009CE8F4 /* HUNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUNetworkError.swift; sourceTree = "<group>"; };
+		10148A672779B757009CE8F4 /* EncodableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		10148A682779B757009CE8F4 /* HttpUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpUtility.h; sourceTree = "<group>"; };
+		10148A702779C4E4009CE8F4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +83,11 @@
 		10148A3327786A9D009CE8F4 /* MobileEA */ = {
 			isa = PBXGroup;
 			children = (
+				10148A4927786B07009CE8F4 /* Model */,
+				10148A4827786ABB009CE8F4 /* View */,
 				10148A4C27786B2E009CE8F4 /* Controller */,
 				10148A4B27786B20009CE8F4 /* Service */,
 				10148A4A27786B11009CE8F4 /* Support */,
-				10148A4927786B07009CE8F4 /* Model */,
-				10148A4827786ABB009CE8F4 /* View */,
 				10148A3D27786AA3009CE8F4 /* Assets.xcassets */,
 				10148A4227786AA3009CE8F4 /* Info.plist */,
 			);
@@ -93,6 +106,7 @@
 		10148A4927786B07009CE8F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				10148A702779C4E4009CE8F4 /* PhotoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +123,7 @@
 		10148A4B27786B20009CE8F4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				10148A612779B757009CE8F4 /* HttpUtility */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -116,9 +131,6 @@
 		10148A4C27786B2E009CE8F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				10148A4D2778BFEA009CE8F4 /* CVGallary */,
-				10148A4E2778BFF5009CE8F4 /* TVGallary */,
-				10148A522778C321009CE8F4 /* SupportGallary */,
 				10148A512778C2F2009CE8F4 /* GallaryVC */,
 			);
 			path = Controller;
@@ -163,17 +175,41 @@
 		10148A512778C2F2009CE8F4 /* GallaryVC */ = {
 			isa = PBXGroup;
 			children = (
+				10148A4D2778BFEA009CE8F4 /* CVGallary */,
+				10148A4E2778BFF5009CE8F4 /* TVGallary */,
+				10148A522778C321009CE8F4 /* DesignViewGallary */,
 				10148A3827786A9D009CE8F4 /* GallaryVC.swift */,
 			);
 			path = GallaryVC;
 			sourceTree = "<group>";
 		};
-		10148A522778C321009CE8F4 /* SupportGallary */ = {
+		10148A522778C321009CE8F4 /* DesignViewGallary */ = {
 			isa = PBXGroup;
 			children = (
 				10148A532778C38B009CE8F4 /* DesignGallary.swift */,
 			);
-			path = SupportGallary;
+			path = DesignViewGallary;
+			sourceTree = "<group>";
+		};
+		10148A612779B757009CE8F4 /* HttpUtility */ = {
+			isa = PBXGroup;
+			children = (
+				10148A622779B757009CE8F4 /* HttpUtility.swift */,
+				10148A632779B757009CE8F4 /* HUHttpMethods.swift */,
+				10148A642779B757009CE8F4 /* HURequest.swift */,
+				10148A652779B757009CE8F4 /* HUNetworkError.swift */,
+				10148A662779B757009CE8F4 /* Extensions */,
+				10148A682779B757009CE8F4 /* HttpUtility.h */,
+			);
+			path = HttpUtility;
+			sourceTree = "<group>";
+		};
+		10148A662779B757009CE8F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				10148A672779B757009CE8F4 /* EncodableExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,11 +288,17 @@
 				10148A5C2778D275009CE8F4 /* HomeTVCell.swift in Sources */,
 				10148A542778C38B009CE8F4 /* DesignGallary.swift in Sources */,
 				10148A3927786A9D009CE8F4 /* GallaryVC.swift in Sources */,
+				10148A6A2779B757009CE8F4 /* HttpUtility.swift in Sources */,
+				10148A712779C4E4009CE8F4 /* PhotoModel.swift in Sources */,
 				10148A3527786A9D009CE8F4 /* AppDelegate.swift in Sources */,
+				10148A6E2779B757009CE8F4 /* EncodableExtension.swift in Sources */,
 				10148A5E2778D372009CE8F4 /* TVGallary.swift in Sources */,
 				10148A572778C522009CE8F4 /* HomeCVCell.swift in Sources */,
 				10148A3727786A9D009CE8F4 /* SceneDelegate.swift in Sources */,
+				10148A6D2779B757009CE8F4 /* HUNetworkError.swift in Sources */,
 				10148A602778D45E009CE8F4 /* CVGallary.swift in Sources */,
+				10148A6C2779B757009CE8F4 /* HURequest.swift in Sources */,
+				10148A6B2779B757009CE8F4 /* HUHttpMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
