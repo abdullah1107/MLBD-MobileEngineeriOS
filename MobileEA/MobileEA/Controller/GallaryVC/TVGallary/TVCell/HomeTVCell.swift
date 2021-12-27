@@ -35,12 +35,12 @@ class HomeTVCell: UITableViewCell {
     
     
     // MARK: - Outlets
-    
-    @IBOutlet weak var docsAndFoldsImageView: UIImageView!
+    @IBOutlet weak var docsAndFoldsImageView: LazyImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberOfItemsLabel: UILabel!
     @IBOutlet weak var optionButton: UIButton!
     @IBOutlet weak var selectIndicator: UIImageView!
+    
     weak var cellDelegate: CellDelegateTV?
     
     

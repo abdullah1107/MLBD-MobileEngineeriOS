@@ -26,6 +26,9 @@
 		10148A6D2779B757009CE8F4 /* HUNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A652779B757009CE8F4 /* HUNetworkError.swift */; };
 		10148A6E2779B757009CE8F4 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A672779B757009CE8F4 /* EncodableExtension.swift */; };
 		10148A712779C4E4009CE8F4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A702779C4E4009CE8F4 /* PhotoModel.swift */; };
+		10148A742779D12F009CE8F4 /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A732779D12F009CE8F4 /* ApiUrl.swift */; };
+		10148A762779D4A1009CE8F4 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A752779D4A1009CE8F4 /* ImageExtension.swift */; };
+		73C660F65A2C3F52DFD4A38A /* Pods_MobileEA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2331E6B3FEC03D5DB7EC83F4 /* Pods_MobileEA.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,11 @@
 		10148A672779B757009CE8F4 /* EncodableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		10148A682779B757009CE8F4 /* HttpUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpUtility.h; sourceTree = "<group>"; };
 		10148A702779C4E4009CE8F4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		10148A732779D12F009CE8F4 /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
+		10148A752779D4A1009CE8F4 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		2331E6B3FEC03D5DB7EC83F4 /* Pods_MobileEA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileEA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47F4BF63D20298340DA3E4D1 /* Pods-MobileEA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileEA.debug.xcconfig"; path = "Target Support Files/Pods-MobileEA/Pods-MobileEA.debug.xcconfig"; sourceTree = "<group>"; };
+		96AA54613CDEC250139D378C /* Pods-MobileEA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileEA.release.xcconfig"; path = "Target Support Files/Pods-MobileEA/Pods-MobileEA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73C660F65A2C3F52DFD4A38A /* Pods_MobileEA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +78,8 @@
 			children = (
 				10148A3327786A9D009CE8F4 /* MobileEA */,
 				10148A3227786A9D009CE8F4 /* Products */,
+				446804B10CDCA827C1324121 /* Pods */,
+				F412105588F02B6CF396B66D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +94,7 @@
 		10148A3327786A9D009CE8F4 /* MobileEA */ = {
 			isa = PBXGroup;
 			children = (
+				10148A722779D0D0009CE8F4 /* Extension */,
 				10148A4927786B07009CE8F4 /* Model */,
 				10148A4827786ABB009CE8F4 /* View */,
 				10148A4C27786B2E009CE8F4 /* Controller */,
@@ -212,6 +224,33 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		10148A722779D0D0009CE8F4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				10148A732779D12F009CE8F4 /* ApiUrl.swift */,
+				10148A752779D4A1009CE8F4 /* ImageExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		446804B10CDCA827C1324121 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47F4BF63D20298340DA3E4D1 /* Pods-MobileEA.debug.xcconfig */,
+				96AA54613CDEC250139D378C /* Pods-MobileEA.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F412105588F02B6CF396B66D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2331E6B3FEC03D5DB7EC83F4 /* Pods_MobileEA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,9 +258,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10148A4527786AA3009CE8F4 /* Build configuration list for PBXNativeTarget "MobileEA" */;
 			buildPhases = (
+				7163045F68F6CBDDEE067FDE /* [CP] Check Pods Manifest.lock */,
 				10148A2D27786A9D009CE8F4 /* Sources */,
 				10148A2E27786A9D009CE8F4 /* Frameworks */,
 				10148A2F27786A9D009CE8F4 /* Resources */,
+				DF92150227AC9FD52436D353 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,6 +321,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7163045F68F6CBDDEE067FDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileEA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF92150227AC9FD52436D353 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileEA/Pods-MobileEA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileEA/Pods-MobileEA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobileEA/Pods-MobileEA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10148A2D27786A9D009CE8F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -296,9 +379,11 @@
 				10148A572778C522009CE8F4 /* HomeCVCell.swift in Sources */,
 				10148A3727786A9D009CE8F4 /* SceneDelegate.swift in Sources */,
 				10148A6D2779B757009CE8F4 /* HUNetworkError.swift in Sources */,
+				10148A742779D12F009CE8F4 /* ApiUrl.swift in Sources */,
 				10148A602778D45E009CE8F4 /* CVGallary.swift in Sources */,
 				10148A6C2779B757009CE8F4 /* HURequest.swift in Sources */,
 				10148A6B2779B757009CE8F4 /* HUHttpMethods.swift in Sources */,
+				10148A762779D4A1009CE8F4 /* ImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +527,7 @@
 		};
 		10148A4627786AA3009CE8F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47F4BF63D20298340DA3E4D1 /* Pods-MobileEA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -470,6 +556,7 @@
 		};
 		10148A4727786AA3009CE8F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96AA54613CDEC250139D378C /* Pods-MobileEA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

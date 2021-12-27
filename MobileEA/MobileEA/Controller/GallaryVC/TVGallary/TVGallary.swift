@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 
+
 extension GallaryVC: UITableViewDelegate, UITableViewDataSource, CellDelegateTV {
     
     
@@ -30,7 +31,7 @@ extension GallaryVC: UITableViewDelegate, UITableViewDataSource, CellDelegateTV 
     // MARK: - Number Of Rows In Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return photoModel.count
     }
     
     
@@ -46,6 +47,20 @@ extension GallaryVC: UITableViewDelegate, UITableViewDataSource, CellDelegateTV 
         
         
         let cell = homeTV.dequeueReusableCell(withIdentifier: HomeTVCell.identifier, for: indexPath) as! HomeTVCell
+        
+//        guard let url = URL(string: photoModel[indexPath.row].download_url ?? "") else { return cell }
+//
+//        // MARK: - NSCache
+//        cell.docsAndFoldsImageView.loadImage(fromURL: url , placeHolderImage: "default")
+        
+        
+        guard let url = URL(string: photoModel[indexPath.row].download_url ?? "") else { return cell }
+        
+        cell.docsAndFoldsImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "default.png"))
+        
+        cell.nameLabel.text = photoModel[indexPath.row].author ?? ""
+        
+        cell.numberOfItemsLabel.text = photoModel[indexPath.row].download_url ?? ""
         
         cell.cellDelegate = self
         

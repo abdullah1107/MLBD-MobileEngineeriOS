@@ -83,6 +83,7 @@ class GallaryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Gallary"
         self.initVC()
         dataloadfromserver()
        
@@ -102,6 +103,9 @@ class GallaryVC: UIViewController {
     // MARK: - listButton
     @IBAction func listButtonClicked(_ sender: UIButton) {
         self.isListReady()
+        DispatchQueue.main.async {
+            self.homeCV.reloadData()
+        }
     }
     
     
@@ -112,6 +116,9 @@ class GallaryVC: UIViewController {
     // MARK: - gridButton
     @IBAction func gridButtonClicked(_ sender: UIButton) {
         self.isGridReady()
+        DispatchQueue.main.async {
+            self.homeTV.reloadData()
+        }
     }
     
     
@@ -135,33 +142,35 @@ extension GallaryVC{
     func dataloadfromserver(){
         
         let utility = HttpUtility.shared // using the shared instance of the utility to make the API call
-        let requestUrl = URL(string: "https://picsum.photos/v2/list")
+        let requestUrl = URL(string: ApiUrl.getallphotosGallary)
         let request = HURequest(withUrl: requestUrl!, forHttpMethod: .get)
         
         utility.request(huRequest: request, resultType: [PhotoModel].self) { [weak self] (response) in
             
             
-             switch response{
-                 
-               case .success(let employee):
-                 
-                 debugPrint(employee?.count ?? 0)
-                 guard let employee = employee else {return}
-                 
-                 for emp in employee{
-                     self?.photoModel.append(emp)
-                 }
-                 
-      
-                 debugPrint(self?.photoModel[0].url ?? "")
+            switch response{
                 
-               case .failure(let error):
-                 debugPrint(error)
-                 break
+            case .success(let employee):
+                
+                guard let employee = employee else {return}
+                
+                for emp in employee{
+                    self?.photoModel.append(emp)
+                }
+                
+                DispatchQueue.main.async {
+                    self?.homeCV.reloadData()
+                    self?.homeTV.reloadData()
+                }
+                
+            case .failure(let error):
+                debugPrint(error)
+                
                 // your code here to handle error
                 
             }
         }
         
     }
+    
 }

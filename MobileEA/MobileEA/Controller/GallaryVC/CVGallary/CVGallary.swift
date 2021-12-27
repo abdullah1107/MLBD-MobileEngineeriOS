@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 
 extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,CellDelegateCV{
@@ -24,7 +25,9 @@ extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     //MARK:-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         
-        return 10
+        debugPrint(photoModel.count)
+        
+        return photoModel.count
     }
     
     
@@ -36,6 +39,13 @@ extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UIColle
         
         
         let cell = homeCV.dequeueReusableCell(withReuseIdentifier:HomeCVCell.identifier, for: indexPath) as! HomeCVCell
+
+        
+        guard let url = URL(string: photoModel[indexPath.row].download_url ?? "") else { return cell }
+        
+        cell.imageCell.sd_setImage(with: url, placeholderImage: UIImage(named: "default.png"))
+        
+
         
         cell.cellDelegate = self
         
