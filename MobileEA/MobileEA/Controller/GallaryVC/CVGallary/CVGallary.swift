@@ -68,17 +68,12 @@ extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UIColle
             
             cell?.selectIndicator.isHidden = true
         
-         
-            
-            if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "PagingCollectionViewController") as? PagingCollectionViewController {
-                
-                destinationViewController.currentDocuments = photoModel
-          
-                
-                destinationViewController.startingIndex = indexPath.row
+            if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImageScrollingVC") as? ImageScrollingVC {
+                destinationViewController.currentImages = cell?.imageCell.image ?? UIImage()
                 
                 self.navigationController?.pushViewController(destinationViewController, animated: true)
             }
+            
             
            
         case .select:

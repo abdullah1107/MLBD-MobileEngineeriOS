@@ -36,6 +36,7 @@
 		10148A86277A19E8009CE8F4 /* PagingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A7E277A19E8009CE8F4 /* PagingCollectionViewCell.swift */; };
 		10148A87277A19E8009CE8F4 /* PagingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A7F277A19E8009CE8F4 /* PagingCollectionViewController.swift */; };
 		10148A8A277AF7FD009CE8F4 /* CVDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A89277AF7FD009CE8F4 /* CVDetails.swift */; };
+		10148A8E277B5892009CE8F4 /* ImageScrollingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A8D277B5892009CE8F4 /* ImageScrollingVC.swift */; };
 		73C660F65A2C3F52DFD4A38A /* Pods_MobileEA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2331E6B3FEC03D5DB7EC83F4 /* Pods_MobileEA.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		10148A7E277A19E8009CE8F4 /* PagingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewCell.swift; sourceTree = "<group>"; };
 		10148A7F277A19E8009CE8F4 /* PagingCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewController.swift; sourceTree = "<group>"; };
 		10148A89277AF7FD009CE8F4 /* CVDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVDetails.swift; sourceTree = "<group>"; };
+		10148A8D277B5892009CE8F4 /* ImageScrollingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScrollingVC.swift; sourceTree = "<group>"; };
 		2331E6B3FEC03D5DB7EC83F4 /* Pods_MobileEA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileEA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F4BF63D20298340DA3E4D1 /* Pods-MobileEA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileEA.debug.xcconfig"; path = "Target Support Files/Pods-MobileEA/Pods-MobileEA.debug.xcconfig"; sourceTree = "<group>"; };
 		96AA54613CDEC250139D378C /* Pods-MobileEA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileEA.release.xcconfig"; path = "Target Support Files/Pods-MobileEA/Pods-MobileEA.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		10148A4C27786B2E009CE8F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				10148A8C277B5868009CE8F4 /* ImagesScrolling */,
 				10148A77277A19E8009CE8F4 /* DetailsVC */,
 				10148A512778C2F2009CE8F4 /* GallaryVC */,
 			);
@@ -271,6 +274,14 @@
 				10148A7D277A19E8009CE8F4 /* ZoomAnimator.swift */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		10148A8C277B5868009CE8F4 /* ImagesScrolling */ = {
+			isa = PBXGroup;
+			children = (
+				10148A8D277B5892009CE8F4 /* ImageScrollingVC.swift */,
+			);
+			path = ImagesScrolling;
 			sourceTree = "<group>";
 		};
 		446804B10CDCA827C1324121 /* Pods */ = {
@@ -407,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10148A8E277B5892009CE8F4 /* ImageScrollingVC.swift in Sources */,
 				10148A5C2778D275009CE8F4 /* HomeTVCell.swift in Sources */,
 				10148A8A277AF7FD009CE8F4 /* CVDetails.swift in Sources */,
 				10148A84277A19E8009CE8F4 /* ZoomDismissalInteractionController.swift in Sources */,

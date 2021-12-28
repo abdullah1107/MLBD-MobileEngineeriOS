@@ -111,18 +111,25 @@ extension GallaryVC: UITableViewDelegate, UITableViewDataSource, CellDelegateTV 
         switch mObject{
         case .view:
             cell.selectIndicator.isHidden = true
+          
+//            
+//            if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImageScrollingVC") as? ImageScrollingVC {
+//                destinationViewController.currentImages = cell.docsAndFoldsImageView.image ?? UIImage()
+//                
+//                self.navigationController?.pushViewController(destinationViewController, animated: true)
+//            }
             
             
             if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "PagingCollectionViewController") as? PagingCollectionViewController {
-                
+
                 destinationViewController.currentDocuments = photoModel
-          
-                
+
+
                 destinationViewController.startingIndex = indexPath.row
-                
+
                 self.navigationController?.pushViewController(destinationViewController, animated: true)
             }
-            
+
             
             
         case .select:
