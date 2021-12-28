@@ -48,10 +48,10 @@ extension GallaryVC: UITableViewDelegate, UITableViewDataSource, CellDelegateTV 
         
         let cell = homeTV.dequeueReusableCell(withIdentifier: HomeTVCell.identifier, for: indexPath) as! HomeTVCell
         
-//        guard let url = URL(string: photoModel[indexPath.row].download_url ?? "") else { return cell }
-//
-//        // MARK: - NSCache
-//        cell.docsAndFoldsImageView.loadImage(fromURL: url , placeHolderImage: "default")
+        //        guard let url = URL(string: photoModel[indexPath.row].download_url ?? "") else { return cell }
+        //
+        //        // MARK: - NSCache
+        //        cell.docsAndFoldsImageView.loadImage(fromURL: url , placeHolderImage: "default")
         
         
         guard let url = URL(string: photoModel[indexPath.row].download_url ?? "") else { return cell }
@@ -104,6 +104,36 @@ extension GallaryVC: UITableViewDelegate, UITableViewDataSource, CellDelegateTV 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function, indexPath.row)
         
+        let cell = tableView.cellForRow(at: indexPath) as! HomeTVCell
+        
+        
+        
+        switch mObject{
+        case .view:
+            cell.selectIndicator.isHidden = true
+            
+            
+            if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "PagingCollectionViewController") as? PagingCollectionViewController {
+                
+                destinationViewController.currentDocuments = photoModel
+          
+                
+                destinationViewController.startingIndex = indexPath.row
+                
+                self.navigationController?.pushViewController(destinationViewController, animated: true)
+            }
+            
+            
+            
+        case .select:
+            
+            dictionarySelectedIndecPath[indexPath] = true
+            selectedID.append(self.photoModel[indexPath.row].id ?? String() )
+            let targetSize = CGSize(width: 400, height: 400)
+            self.selectedImages.append(cell.docsAndFoldsImageView.image?.scalePreservingAspectRatio(targetSize: targetSize) ?? UIImage())
+            
+        }
+        
         
         
     }
@@ -115,6 +145,21 @@ extension GallaryVC: UITableViewDelegate, UITableViewDataSource, CellDelegateTV 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
         print(#function, indexPath.row)
+        switch mObject{
+        case .view:
+            break
+            
+        case .select:
+            
+            if self.homeTV.allowsMultipleSelection{
+                
+                dictionarySelectedIndecPath[indexPath] = false
+                self.selectedID.removeAll(where: { $0 == self.photoModel[indexPath.row].id })
+                self.selectedImages.removeLast()
+                
+                
+            }
+        } // end selected object
         
         
         

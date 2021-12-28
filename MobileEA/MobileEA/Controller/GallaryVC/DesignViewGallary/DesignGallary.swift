@@ -24,12 +24,14 @@ extension GallaryVC{
     func isGridReady(){
         homeTV.isHidden = true
         homeCV.isHidden = false
+        self.navigationItem.leftBarButtonItem?.isEnabled = false
     }
     
     
     func isListReady(){
         homeCV.isHidden = true
         homeTV.isHidden = false
+        self.navigationItem.leftBarButtonItem?.isEnabled = false
        
     }
     
@@ -124,7 +126,6 @@ extension GallaryVC{
         case .select:
             
             self.navigationItem.leftBarButtonItem?.isEnabled = true
-            
             self.navigationItem.rightBarButtonItem!.title = "Done"
             
             

@@ -32,12 +32,12 @@ class LazyImageView: UIImageView
                 debugPrint("image downloaded from server...")
                 if let image = UIImage(data: imageData)
                 {
-                    let targetSize = CGSize(width: 400, height: 400)
-                    let scaledImage = image.scalePreservingAspectRatio(targetSize: targetSize)
+                    //let targetSize = CGSize(width: 800, height: 2000)
+                    let scaledImage = image.resized(toWidth: 400)
 
                     DispatchQueue.main.async {
                        
-                        self?.imageCache.setObject(scaledImage, forKey: imageURL as AnyObject)
+                        self?.imageCache.setObject(scaledImage!, forKey: imageURL as AnyObject)
                         self?.image = scaledImage
                     }
                 }
@@ -93,4 +93,14 @@ extension UIImage {
         }
     }
 
+}
+
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }

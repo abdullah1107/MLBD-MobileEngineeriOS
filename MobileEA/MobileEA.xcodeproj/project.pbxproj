@@ -28,6 +28,14 @@
 		10148A712779C4E4009CE8F4 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A702779C4E4009CE8F4 /* PhotoModel.swift */; };
 		10148A742779D12F009CE8F4 /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A732779D12F009CE8F4 /* ApiUrl.swift */; };
 		10148A762779D4A1009CE8F4 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A752779D4A1009CE8F4 /* ImageExtension.swift */; };
+		10148A81277A19E8009CE8F4 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A78277A19E8009CE8F4 /* utilities.swift */; };
+		10148A82277A19E8009CE8F4 /* ZoomAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A79277A19E8009CE8F4 /* ZoomAnimationDelegate.swift */; };
+		10148A83277A19E8009CE8F4 /* ZoomTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A7B277A19E8009CE8F4 /* ZoomTransitionController.swift */; };
+		10148A84277A19E8009CE8F4 /* ZoomDismissalInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A7C277A19E8009CE8F4 /* ZoomDismissalInteractionController.swift */; };
+		10148A85277A19E8009CE8F4 /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A7D277A19E8009CE8F4 /* ZoomAnimator.swift */; };
+		10148A86277A19E8009CE8F4 /* PagingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A7E277A19E8009CE8F4 /* PagingCollectionViewCell.swift */; };
+		10148A87277A19E8009CE8F4 /* PagingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A7F277A19E8009CE8F4 /* PagingCollectionViewController.swift */; };
+		10148A8A277AF7FD009CE8F4 /* CVDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10148A89277AF7FD009CE8F4 /* CVDetails.swift */; };
 		73C660F65A2C3F52DFD4A38A /* Pods_MobileEA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2331E6B3FEC03D5DB7EC83F4 /* Pods_MobileEA.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +64,14 @@
 		10148A702779C4E4009CE8F4 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		10148A732779D12F009CE8F4 /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
 		10148A752779D4A1009CE8F4 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		10148A78277A19E8009CE8F4 /* utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
+		10148A79277A19E8009CE8F4 /* ZoomAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimationDelegate.swift; sourceTree = "<group>"; };
+		10148A7B277A19E8009CE8F4 /* ZoomTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionController.swift; sourceTree = "<group>"; };
+		10148A7C277A19E8009CE8F4 /* ZoomDismissalInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomDismissalInteractionController.swift; sourceTree = "<group>"; };
+		10148A7D277A19E8009CE8F4 /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
+		10148A7E277A19E8009CE8F4 /* PagingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewCell.swift; sourceTree = "<group>"; };
+		10148A7F277A19E8009CE8F4 /* PagingCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewController.swift; sourceTree = "<group>"; };
+		10148A89277AF7FD009CE8F4 /* CVDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVDetails.swift; sourceTree = "<group>"; };
 		2331E6B3FEC03D5DB7EC83F4 /* Pods_MobileEA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileEA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F4BF63D20298340DA3E4D1 /* Pods-MobileEA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileEA.debug.xcconfig"; path = "Target Support Files/Pods-MobileEA/Pods-MobileEA.debug.xcconfig"; sourceTree = "<group>"; };
 		96AA54613CDEC250139D378C /* Pods-MobileEA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileEA.release.xcconfig"; path = "Target Support Files/Pods-MobileEA/Pods-MobileEA.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +159,7 @@
 		10148A4C27786B2E009CE8F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				10148A77277A19E8009CE8F4 /* DetailsVC */,
 				10148A512778C2F2009CE8F4 /* GallaryVC */,
 			);
 			path = Controller;
@@ -233,13 +250,35 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		10148A77277A19E8009CE8F4 /* DetailsVC */ = {
+			isa = PBXGroup;
+			children = (
+				10148A78277A19E8009CE8F4 /* utilities.swift */,
+				10148A79277A19E8009CE8F4 /* ZoomAnimationDelegate.swift */,
+				10148A7A277A19E8009CE8F4 /* Animation */,
+				10148A7E277A19E8009CE8F4 /* PagingCollectionViewCell.swift */,
+				10148A7F277A19E8009CE8F4 /* PagingCollectionViewController.swift */,
+				10148A89277AF7FD009CE8F4 /* CVDetails.swift */,
+			);
+			path = DetailsVC;
+			sourceTree = "<group>";
+		};
+		10148A7A277A19E8009CE8F4 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				10148A7B277A19E8009CE8F4 /* ZoomTransitionController.swift */,
+				10148A7C277A19E8009CE8F4 /* ZoomDismissalInteractionController.swift */,
+				10148A7D277A19E8009CE8F4 /* ZoomAnimator.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		446804B10CDCA827C1324121 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				47F4BF63D20298340DA3E4D1 /* Pods-MobileEA.debug.xcconfig */,
 				96AA54613CDEC250139D378C /* Pods-MobileEA.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -369,18 +408,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				10148A5C2778D275009CE8F4 /* HomeTVCell.swift in Sources */,
+				10148A8A277AF7FD009CE8F4 /* CVDetails.swift in Sources */,
+				10148A84277A19E8009CE8F4 /* ZoomDismissalInteractionController.swift in Sources */,
 				10148A542778C38B009CE8F4 /* DesignGallary.swift in Sources */,
+				10148A82277A19E8009CE8F4 /* ZoomAnimationDelegate.swift in Sources */,
 				10148A3927786A9D009CE8F4 /* GallaryVC.swift in Sources */,
 				10148A6A2779B757009CE8F4 /* HttpUtility.swift in Sources */,
+				10148A86277A19E8009CE8F4 /* PagingCollectionViewCell.swift in Sources */,
 				10148A712779C4E4009CE8F4 /* PhotoModel.swift in Sources */,
+				10148A83277A19E8009CE8F4 /* ZoomTransitionController.swift in Sources */,
+				10148A87277A19E8009CE8F4 /* PagingCollectionViewController.swift in Sources */,
 				10148A3527786A9D009CE8F4 /* AppDelegate.swift in Sources */,
 				10148A6E2779B757009CE8F4 /* EncodableExtension.swift in Sources */,
 				10148A5E2778D372009CE8F4 /* TVGallary.swift in Sources */,
+				10148A81277A19E8009CE8F4 /* utilities.swift in Sources */,
 				10148A572778C522009CE8F4 /* HomeCVCell.swift in Sources */,
 				10148A3727786A9D009CE8F4 /* SceneDelegate.swift in Sources */,
 				10148A6D2779B757009CE8F4 /* HUNetworkError.swift in Sources */,
 				10148A742779D12F009CE8F4 /* ApiUrl.swift in Sources */,
 				10148A602778D45E009CE8F4 /* CVGallary.swift in Sources */,
+				10148A85277A19E8009CE8F4 /* ZoomAnimator.swift in Sources */,
 				10148A6C2779B757009CE8F4 /* HURequest.swift in Sources */,
 				10148A6B2779B757009CE8F4 /* HUHttpMethods.swift in Sources */,
 				10148A762779D4A1009CE8F4 /* ImageExtension.swift in Sources */,

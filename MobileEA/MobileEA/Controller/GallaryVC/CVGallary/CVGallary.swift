@@ -45,7 +45,6 @@ extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UIColle
         
         cell.imageCell.sd_setImage(with: url, placeholderImage: UIImage(named: "default.png"))
         
-
         
         cell.cellDelegate = self
         
@@ -61,6 +60,38 @@ extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UIColle
         
         debugPrint("indexpath:", indexPath.row)
         
+        let cell = homeCV.cellForItem(at: indexPath) as? HomeCVCell
+        
+        switch mObject{
+        
+        case .view:
+            
+            cell?.selectIndicator.isHidden = true
+        
+         
+            
+            if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: "PagingCollectionViewController") as? PagingCollectionViewController {
+                
+                destinationViewController.currentDocuments = photoModel
+          
+                
+                destinationViewController.startingIndex = indexPath.row
+                
+                self.navigationController?.pushViewController(destinationViewController, animated: true)
+            }
+            
+           
+        case .select:
+            
+            dictionarySelectedIndecPath[indexPath] = true
+            let targetSize = CGSize(width: 450, height: 450)
+            self.selectedImages.append(cell?.imageCell.image?.scalePreservingAspectRatio(targetSize: targetSize) ?? UIImage())
+           
+            
+        }
+        
+        
+        
         
         
         
@@ -72,7 +103,22 @@ extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         print(#function, indexPath.row)
-        
+      
+        switch mObject{
+        case .view:
+            break
+            
+        case .select:
+            
+            if self.homeCV.allowsMultipleSelection{
+                
+                dictionarySelectedIndecPath[indexPath] = false
+                self.selectedID.removeAll(where: { $0 == self.photoModel[indexPath.row].id })
+                self.selectedImages.removeLast()
+                
+                
+            }
+        } // end selected object
         
         
     }
@@ -105,85 +151,7 @@ extension GallaryVC:UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    // MARK: - Collection View Layout
-    
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //
-    //
-    //        if UIDevice.isPhone{
-    //            let numberOfCellsInRow = 2
-    //            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-    //            let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfCellsInRow - 1))
-    //
-    //            let size = Int((homeCV.bounds.width - totalSpace) / CGFloat(numberOfCellsInRow))
-    //           // debugPrint("size", size)
-    //
-    //            return CGSize(width: size, height: size)
-    //        }
-    //
-    //
-    //        if UIDevice.isPad {
-    //            // Do something
-    //            let numberOfCellsInRow = 4
-    //            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-    //            let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfCellsInRow - 1))
-    //
-    //            let size = Int((homeCV.bounds.width - totalSpace) / CGFloat(numberOfCellsInRow))
-    //            //debugPrint("size", size)
-    //
-    //            return CGSize(width: size, height: size)
-    //        }
-    //
-    //
-    //        return CGSize()
-    //    }
-    
-    
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    //        //debugPrint("calling...")
-    //
-    //        if UIDevice.isPhone{
-    //            return 20.0
-    //        }
-    //        if UIDevice.isPad{
-    //            return 40
-    //        }
-    //
-    //
-    //        return CGFloat()
-    //
-    //    }
-    
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //
-    //        let numberOfCellsInRow = 2
-    //        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-    //        let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfCellsInRow - 1))
-    //
-    //        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfCellsInRow))
-    //        //debugPrint("size", size)
-    //
-    //        return CGSize(width: size, height: size + 15)
-    //    }
-    //
-    //    //MARK:-
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    //        debugPrint("calling...")
-    //        return 20.0
-    //    }
-    
-    
-    
-    
-    
-    
+  
     
 }
 

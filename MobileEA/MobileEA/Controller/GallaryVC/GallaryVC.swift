@@ -34,7 +34,9 @@ class GallaryVC: UIViewController {
     var photoModel = [PhotoModel]()
     var homeCV: UICollectionView!
     var homeTV:UITableView = UITableView()
-    
+    var selectedImages:[UIImage] = []
+    var selectedID = [String]()
+    var collectedImages:[UIImage] = []
     
    
     var gridButtonClicked:Bool = true
@@ -103,7 +105,10 @@ class GallaryVC: UIViewController {
     // MARK: - listButton
     @IBAction func listButtonClicked(_ sender: UIButton) {
         self.isListReady()
+        self.selectedID.removeAll()
+        self.selectedImages.removeAll()
         DispatchQueue.main.async {
+            self.mObject = .view
             self.homeCV.reloadData()
         }
     }
@@ -116,7 +121,10 @@ class GallaryVC: UIViewController {
     // MARK: - gridButton
     @IBAction func gridButtonClicked(_ sender: UIButton) {
         self.isGridReady()
+        self.selectedID.removeAll()
+        self.selectedImages.removeAll()
         DispatchQueue.main.async {
+            self.mObject = .view
             self.homeTV.reloadData()
         }
     }
@@ -129,7 +137,25 @@ class GallaryVC: UIViewController {
     
     // MARK: - shareButton
     @IBAction func sharaButtonClicked(_ sender: UIBarButtonItem) {
+        debugPrint(selectedImages.count)
         
+        let shareVC = UIActivityViewController(activityItems: selectedImages, applicationActivities: nil)
+        self.present(shareVC, animated: true, completion: nil)
+        
+//        if UIDevice.isPad {
+//
+//            shareVC.modalPresentationStyle = .overFullScreen
+//            shareVC.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+//
+//            if shareVC.responds(to: #selector(getter: UIViewController.popoverPresentationController)) {
+//                shareVC.popoverPresentationController?.sourceView = self.view
+//            }
+//            self.present(shareVC, animated: true, completion: nil)
+//        }
+//        else if UIDevice.isPhone{
+//            self.present(shareVC, animated: true, completion: nil)
+//        }
+
     }
     
     

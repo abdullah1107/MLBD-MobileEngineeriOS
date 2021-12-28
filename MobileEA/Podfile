@@ -7,5 +7,6 @@ target 'MobileEA' do
 
   # Pods for MobileEA
   pod 'SDWebImage'
+  pod 'SnapKit', '~> 5.0.0'
 
 end
