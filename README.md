@@ -5,7 +5,7 @@
 
 Get the api response images from server <br>
 show images in grid and list view <br>
-share and image show in infinite scroll in view and save gallary <br/>
+share , gallary save and image show in infinite scroll in view and save gallary <br/>
 
 <h1>Requirements</h1>
 
