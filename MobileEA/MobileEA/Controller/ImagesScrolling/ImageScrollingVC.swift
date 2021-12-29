@@ -24,6 +24,27 @@ class ImageScrollingVC: UIViewController {
         
         scrollView.delegate = self
     }
+    
+    
+    @IBAction func saveGallary(_ sender: UIBarButtonItem) {
+        
+        debugPrint("save gallary")
+       // UIImageWriteToSavedPhotosAlbum(currentImages, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(self.currentImages, self, #selector(imageSave(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func imageSave(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+
+        if let error = error {
+
+            print(error.localizedDescription)
+
+        } else {
+
+            print("Success")
+           // showMessageToUser(title: "Alert", msg: "Documents saved")
+        }
+    }
 }
 
 extension ImageScrollingVC: UIScrollViewDelegate {
